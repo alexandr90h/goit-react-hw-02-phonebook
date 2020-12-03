@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import InputForm from './inputMainForm/inputMainForm.jsx';
+import ContactsList from './contactsList/conractsList';
+// function App() {
+//   return (<InputForm/>);
+// }
+class App extends Component{
+  state = {
+    contacts: [],
+    name: '',
+    number: ''
+  }
+  formSubmitHandler = data => {
+    this.setState(prev => ({
+      contacts: prev.contacts.concat(data),
+    }))
+  }
+  render(){
+    return (
+      <div>
+      <InputForm onSubHand={this.formSubmitHandler} />
+      <ContactsList stateData={this.state.contacts} />
     </div>
-  );
+    )
+  }
+  
 }
-
 export default App;
