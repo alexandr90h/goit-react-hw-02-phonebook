@@ -1,7 +1,7 @@
-export default function CotactsList({id,name,number}) {
+export default function ContactsList({id,name,number}) {
     return (
         <li key={id}>
-            <span>{name}</span><span>{ number}</span>
+            <span>{name}: </span><span>{number}</span>
             </li>
     )
 }
