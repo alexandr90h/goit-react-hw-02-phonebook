@@ -1,10 +1,10 @@
 import ContactsItem from '../contactsList/contactsItem';
-export default function FilterContactsList({stateData, changeFilter }) {
+export default function FilterContactsList({ stateData, changeFilter }) {
+    const filterArr = stateData.filter(obj=>{return (obj.name.toLowerCase().includes(changeFilter.toLowerCase()))}); 
     return (
         <ul>
-            {stateData.filter(obj => {
-                if (obj.name===changeFilter){}
-                return (<ContactsItem key={obj.id}
+            {filterArr.map(obj => {
+                return(<ContactsItem key={obj.id}
                     id={obj.id}
                     name={obj.name}
                     number={obj.number}
