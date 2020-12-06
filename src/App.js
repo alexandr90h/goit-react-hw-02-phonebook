@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import styles from './app.module.scss';
 import InputForm from './inputMainForm/inputMainForm.jsx';
 import ContactsList from './contactsList/conractsList';
 import InputFind from './inputFind/inputFind';
@@ -23,7 +23,7 @@ class App extends Component{
       filter: data,
     })
   }
-  onBtnIdHend = data => {
+  btnDelId = data => {
     this.setState(prev => ({
     contacts: prev.contacts.filter(obj=>obj.id!==data)
     }))
@@ -33,7 +33,7 @@ class App extends Component{
   }
   render() {
     return (
-      <div>
+      <div className={styles.mainContainer}>
         <h1>Phonebook</h1>
         <div>
           <InputForm onSubHand={this.formSubmitHandler} />
@@ -41,9 +41,16 @@ class App extends Component{
         <div>
           <h2>Contacts</h2>
         <InputFind onChangeFind={this.inpChangHandler} />
-        {this.state.filter===''?<ContactsList stateData={this.state.contacts} />:<FilterContactsList
-          stateData={this.state.contacts}
-          changeFilter={this.state.filter} />}
+          {this.state.filter === ''
+            ?
+            <ContactsList
+              stateData={this.state.contacts}
+              onBtnDelId={this.btnDelId} />
+            :
+            <FilterContactsList
+              stateData={this.state.contacts}
+              changeFilter={this.state.filter}
+              onBtnDelId={this.btnDelId} />}
         </div>
     </div>
     )

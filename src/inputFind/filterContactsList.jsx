@@ -1,5 +1,5 @@
 import ContactsItem from '../contactsList/contactsItem';
-export default function FilterContactsList({ stateData, changeFilter }) {
+export default function FilterContactsList({ stateData, changeFilter,onBtnDelId }) {
     const filterArr = stateData.filter(obj=>{return (obj.name.toLowerCase().includes(changeFilter.toLowerCase()))}); 
     return (
         <ul>
@@ -8,6 +8,7 @@ export default function FilterContactsList({ stateData, changeFilter }) {
                     id={obj.id}
                     name={obj.name}
                     number={obj.number}
+                    onBtnDelId={onBtnDelId}
                 />)
             })}
         </ul>

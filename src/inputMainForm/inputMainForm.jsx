@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './inputMainForm.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 class InputForm extends Component{
     state={
@@ -26,7 +27,7 @@ class InputForm extends Component{
     }
     render() {
         return (<div>
-            <form onSubmit={this.hendleOnSubmit}>
+            <form onSubmit={this.hendleOnSubmit} className={styles.mainForm}>
                 <label>Name 
             <input type="text" name="name" autoComplete="off" value={this.state.name} onChange={this.hendleInputChanga}/>
                 </label>
