@@ -1,6 +1,7 @@
 .contactItem {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   height: 40px;
   line-height: 2rem;
@@ -9,7 +10,7 @@
   padding-left: 40px;
   padding-right: 10px;
   color: rgb(53, 53, 53);
-  background: #a98ed4;
+  background: #b2a1ce;
   white-space: nowrap;
   border-radius: 0.25rem;
   &:last-child {
@@ -28,16 +29,33 @@
     border: 0.25rem solid #fff;
     text-align: center;
     color: rgb(53, 53, 53);
-    background: #a98ed4;
+    background: #b2a1ce;
     font-size: 20px;
     font-weight: 800;
+  }
+  button {
+    height: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #783dd8;
+    color: blanchedalmond;
+    &:focus,
+    &:hover {
+      background-color: #562c9b;
+      box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16),
+        0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
+    }
   }
 }
 .nameItem {
   margin: 0;
   padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(32, 32, 32);
 }
 .phonItem {
   margin: 0;
   padding: 0;
+  font-weight: 500;
 }
